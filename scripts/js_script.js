@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 			items.forEach(function (item) {
 				var galleryImg = "<a class='showImageDetails' data-media-taken='" + item.date_taken +
-									"' date_published='" + item.published +"'>" +
+									"' data-date-published='" + item.published +"'>" +
 									"<img class='col-sm-3' src='" + item.media.m + "'/>" +
 								"</a>"
 				$gallery.append(galleryImg);
@@ -84,8 +84,8 @@ $(document).ready(function(){
 			$button.addClass("pub-asc");
 
 			publImages = images.sort(function(a,b){
-				var aImgPubl = new Date($(a).attr('date_published'));
-				var bImgPubl = new Date($(b).attr('date_published'));
+				var aImgPubl = new Date($(a).attr('data-date-published'));
+				var bImgPubl = new Date($(b).attr('data-date-published'));
 
 				return aImgPubl > bImgPubl;
 			})
@@ -94,8 +94,8 @@ $(document).ready(function(){
 
 			if($button.hasClass("pub-asc")){
 				publImages = images.sort(function(a,b){
-				var aImgPubl = new Date($(a).attr('date_published'));
-				var bImgPubl = new Date($(b).attr('date_published'));
+				var aImgPubl = new Date($(a).attr('data-date-published'));
+				var bImgPubl = new Date($(b).attr('data-date-published'));
 
 				return aImgPubl > bImgPubl;
 				})
@@ -103,8 +103,8 @@ $(document).ready(function(){
 
 			else {
 				publImages = images.sort(function(a,b){
-				var aImgPubl = new Date($(a).attr('date_published'));
-				var bImgPubl = new Date($(b).attr('date_published'));
+				var aImgPubl = new Date($(a).attr('data-date-published'));
+				var bImgPubl = new Date($(b).attr('data-date-published'));
 
 				return aImgPubl < bImgPubl;
 				})
