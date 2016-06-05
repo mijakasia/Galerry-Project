@@ -1,0 +1,81 @@
+body {
+	background-color: #6e7f80; /*grey*/
+}
+
+.container {
+	margin: 50px;
+}
+
+.gallery-container {
+	margin: 50px;
+}
+
+.add_container {
+	margin: 50px;
+}
+
+h1 {
+	text-align: center;
+}
+hr.style-five {
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px white;
+}
+hr.style-five:after {  /* Not really supposed to work, but does */
+    content: "\00a0";  /* Prevent margin collapse */
+}
+img {
+
+	height: 150px;
+} 
+
+button {
+
+	height: 30px;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.btn {
+	margin-bottom: 5px;
+}
+
+.media_taken .glyphicon-arrow-down{
+	display:none;
+	padding: 3px;
+}
+
+.media_taken .glyphicon-arrow-up{
+	display:none;
+	padding: 3px;
+	color: white;
+}
+
+.media_taken.sort-asc .glyphicon-arrow-up, .media_taken.sort-desc .glyphicon-arrow-down {
+	display:inline-block;
+}
+
+.published_date .glyphicon-arrow-down{
+	display:none;
+	padding: 3px;
+}
+
+.published_date .glyphicon-arrow-up{
+	display:none;
+	padding: 3px;
+}
+
+.published_date.pub-desc .glyphicon-arrow-up, .published_date.pub-asc .glyphicon-arrow-down {
+	display:inline-block;
+}
+
+div.modal-link  {
+	padding: 15px;
+}
+
+div.modal-description {
+	padding: 15px;
+	word-break: break-word;
+}
