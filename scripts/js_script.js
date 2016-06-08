@@ -5,15 +5,17 @@ $(document).ready(function(){
 	function fillUpGallery($gallery, choosen_tag){
 		$.getJSON(flickrUrl + '&tags=' + choosen_tag, function (data){
 			var items = data.items.splice(0, 4);
-
 			galleryData[choosen_tag] = items
 
-			items.forEach(function (item) {
+			items.forEach(function (item, index) {
 				var galleryImg = "<a class='showImageDetails' data-media-taken='" + item.date_taken +
-									"' data-date-published='" + item.published +"'>" +
+									"' data-date-published='" + item.published +
+									"'data-index='" + index + "'>" +
 									"<img class='col-sm-3' src='" + item.media.m + "'/>" +
 								"</a>"
 				$gallery.append(galleryImg);
+				
+				
 			})
 		})
 	}
@@ -22,7 +24,7 @@ $(document).ready(function(){
 		var $gallery = $(this)
 		var chosen_tag = $gallery.attr("data-tag");
 
-		fillUpGallery($gallery, chosen_tag)
+		fillUpGallery($gallery, chosen_tag);
 	})
 
 	$(".all-gallery").on("click", ".media_taken", function(event) {
@@ -147,7 +149,7 @@ $(document).ready(function(){
 	$('#imageDetails').on('show.bs.modal', function (event) {
 	  var linkElement = $(event.relatedTarget) // linkElement that triggered the modal
 	  var myDataTag = linkElement.parent().data("tag");
-	  var myIndex = linkElement.index();
+	  var myIndex = linkElement.data("index");
 
 	  var modal = $(this)
 	  modal.find('.modal-title').text(galleryData[myDataTag][myIndex].title);
@@ -158,12 +160,3 @@ $(document).ready(function(){
 })
 
 
-// linkElement
-// linkElement -> parent -> gallery
-// gallery data-tag
-// galleryData[data-tag] => [items]
-// odczytac pozycje "linkElement"(a) (indexOf) => index
-// galleryData[data-tag][index] => media, media_taken, published, title
-
-// modal-title -> title
-// modal-body -> img, author, description, link
